@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitTracker — Dashboard</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="inicio_log.css" />
+</head>
+<body class="dashboard-body">
+
+  <!-- ============================================================
+       SIDEBAR
+  ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+      </div>
+      <h1 class="logo-text">FitTracker</h1>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">Rutinas</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">💪</span>
+        <span class="nav-label">Ejercicios</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">⭐</span>
+        <span class="nav-label">Entrenamientos</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📈</span>
+        <span class="nav-label">Progreso</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📅</span>
+        <span class="nav-label">Calendario</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">🔥</span>
+        <span class="nav-label">Rachas</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">⚖️</span>
+        <span class="nav-label">Peso y medidas</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">👤</span>
+        <span class="nav-label">Perfil</span>
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Configuración</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="dark-mode-toggle" id="dark-mode-btn">
+        <span>🌙</span> Modo oscuro
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main class="main-content">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <input type="text" class="search-box" placeholder="Buscar ejercicios, rutinas...">
+      </div>
+      <div class="header-right">
+        <button class="notification-btn">🔔</button>
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <span class="user-name">Adriel</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+      <div>
+        <h2 class="welcome-title">¡Bienvenido de vuelta, Adriel! 💪</h2>
+        <p class="welcome-subtitle">Estás a un paso de tu mejor versión.</p>
+      </div>
+      <button class="btn-new-routine">+ Nueva rutina</button>
+    </section>
+
+    <!-- Stats Grid -->
+    <section class="stats-section">
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-title">Entrenamientos</h3>
+          <span class="stat-icon">📋</span>
+        </div>
+        <div class="stat-value">6</div>
+        <div class="stat-change positive">+4 este mes</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-title">Volumen Total</h3>
+          <span class="stat-icon">☀️</span>
+        </div>
+        <div class="stat-value">14.6k<span class="stat-unit">kg</span></div>
+        <div class="stat-change positive">+18% este mes</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-title">Tiempo</h3>
+          <span class="stat-icon">⏱️</span>
+        </div>
+        <div class="stat-value">5h 57m</div>
+        <div class="stat-change positive">+8% este mes</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-title">Racha Actual</h3>
+          <span class="stat-icon">🔥</span>
+        </div>
+        <div class="stat-value">0 días</div>
+        <div class="stat-change neutral">Mejor: 20 días</div>
+      </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="charts-section">
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Progreso de fuerza</h3>
+          <a href="#" class="chart-link">Press Banca Plano</a>
+        </div>
+        <div class="chart-placeholder">
+          <svg viewBox="0 0 400 200" style="width: 100%; height: 100%;">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.3" />
+                <stop offset="100%" style="stop-color:#22c55e;stop-opacity:0" />
+              </linearGradient>
+            </defs>
+            <polyline points="20,150 120,120 220,80 320,40" fill="none" stroke="#22c55e" stroke-width="3" />
+            <polygon points="20,150 120,120 220,80 320,40 320,200 20,200" fill="url(#gradient)" />
+            <circle cx="20" cy="150" r="5" fill="#22c55e" />
+            <circle cx="120" cy="120" r="5" fill="#22c55e" />
+            <circle cx="220" cy="80" r="5" fill="#22c55e" />
+            <circle cx="320" cy="40" r="5" fill="#22c55e" />
+            <text x="20" y="190" font-size="12" fill="#64748b" text-anchor="middle">05-28</text>
+            <text x="120" y="190" font-size="12" fill="#64748b" text-anchor="middle">06-02</text>
+            <text x="220" y="190" font-size="12" fill="#64748b" text-anchor="middle">06-07</text>
+            <text x="320" y="190" font-size="12" fill="#64748b" text-anchor="middle">06-11</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="next-training-card">
+        <h3>Próximo entrenamiento</h3>
+        <div class="training-item">
+          <div class="training-dot" style="background: #7c3aed;"></div>
+          <div class="training-info">
+            <div class="training-name">Push - Pecho & Tríceps</div>
+            <div class="training-date">8 jun 2026</div>
+          </div>
+        </div>
+        <div class="training-item">
+          <div class="training-dot" style="background: #f97316;"></div>
+          <div class="training-info">
+            <div class="training-name">Pull - Espalda & Bíceps</div>
+            <div class="training-date">10 jun 2026</div>
+          </div>
+        </div>
+        <div class="training-item">
+          <div class="training-dot" style="background: #10b981;"></div>
+          <div class="training-info">
+            <div class="training-name">Piernas</div>
+            <div class="training-date">11 jun 2026</div>
+          </div>
+        </div>
+        <div class="training-item">
+          <div class="training-dot" style="background: #f59e0b;"></div>
+          <div class="training-info">
+            <div class="training-name">Hombros & Abdomen</div>
+            <div class="training-date">14 jun 2026</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
