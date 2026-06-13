@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitTracker — Asciende hacia tu mejor versión física</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24"><polyline points="3 12 7 12 9 5 13 19 15 12 21 12"/></svg>
+      </div>
+      <span class="logo-word">FitTracker</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Inicio</a></li>
+      <li><a href="#features">¿Que ofrecemos?</a></li>
+      <li><a href="#gallery">Galería</a></li>
+      <li><a href="#why">¿Por qué elegirnos?</a></li>
+      <li><a href="#testimonials">Reseñas</a></li>
+    </ul>
+
+    <div class="nav-auth">
+      <a href="login_registro.html" class="btn-nav-ghost">Iniciar sesión</a>
+      <a href="login_registro.html" class="btn-nav-solid">Registrarse</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Menú mobile -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#hero">Inicio</a>
+    <a href="#features">Servicios</a>
+    <a href="#gallery">Rutinas</a>
+    <a href="#why">Nutrición</a>
+    <a href="#testimonials">Contacto</a>
+    <div class="mobile-auth">
+      <a href="login_registro.html" class="btn-nav-ghost">Iniciar sesión</a>
+      <a href="login_registro.html" class="btn-nav-solid">Registrarse</a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero">
+
+    <!-- Texto central -->
+    <div class="hero-text reveal">
+      <span class="hero-eyebrow">Plataforma de fitness digital</span>
+      <h1 class="hero-title">FitTracker</h1>
+      <p class="hero-sub">Asciende hacia tu mejor versión física</p>
+      <div class="hero-cta">
+        <a href="#features" class="btn-solid">Comenzar ahora</a>
+        <a href="#why" class="btn-outline">Conocer más</a>
+      </div>
+    </div>
+
+    <!-- Bloque de imágenes: 1 grande + 2 pequeñas -->
+    <div class="hero-images">
+      <div class="hero-img-main reveal">
+        <img
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=85"
+          alt="Gimnasio moderno"
+          loading="eager"
+        />
+      </div>
+      <div class="hero-img-row">
+        <div class="hero-img-sub reveal">
+          <img
+            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&q=80"
+            alt="Entrenamiento"
+            loading="lazy"
+          />
+        </div>
+        <div class="hero-img-sub reveal">
+          <img
+            src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=900&q=80"
+            alt="Equipamiento"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de estadísticas -->
+    <div class="stats-bar">
+      <div class="stat-item reveal">
+        <div class="stat-num">50K+</div>
+        <div class="stat-label">Usuarios activos</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">1.2M</div>
+        <div class="stat-label">Entrenamientos</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Satisfacción</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Disponibilidad</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       FEATURES — Características
+  ============================================================ -->
+  <section id="features">
+    <div class="features-head reveal">
+      <div>
+        <div class="sec-tag">Lo que ofrecemos</div>
+        <h2 class="sec-title">Tu progreso,<br/>nuestra prioridad</h2>
+      </div>
+      <p class="sec-desc">
+        Herramientas precisas para que cada sesión cuente
+        y cada objetivo esté al alcance de tu mano.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <!-- Tarjeta 1 -->
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Seguimiento de progreso</h3>
+        <p>Registra métricas corporales, fuerza y resistencia con gráficas que muestran tu evolución semana a semana.</p>
+      </div>
+      <!-- Tarjeta 2 -->
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3>Rutinas personalizadas</h3>
+        <p>Planes de entrenamiento adaptados a tu nivel, objetivos y disponibilidad horaria con IA de entrenamiento.</p>
+      </div>
+      <!-- Tarjeta 3 -->
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Control nutricional</h3>
+        <p>Gestiona calorías, macronutrientes y suplementación con más de 500,000 alimentos en nuestra base de datos.</p>
+      </div>
+      <!-- Tarjeta 4 -->
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3>Estadísticas y objetivos</h3>
+        <p>Dashboards con marcas personales, racha de entrenamientos y proyecciones para alcanzar tus metas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY — Galería visual
+  ============================================================ -->
+  <section id="gallery">
+    <div class="gallery-intro reveal">
+      <div>
+        <div class="sec-tag">Galería</div>
+        <h2 class="sec-title">El mundo FitTracker</h2>
+      </div>
+      <p class="sec-desc" style="max-width:280px;">
+        Espacios, personas y resultados que inspiran tu próxima sesión.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="g-item reveal">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&q=80" alt="Fuerza" loading="lazy"/>
+      </div>
+      <div class="g-item reveal">
+        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?w=700&q=80" alt="Levantamiento" loading="lazy"/>
+      </div>
+      <div class="g-item reveal">
+        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=700&q=80" alt="Funcional" loading="lazy"/>
+      </div>
+      <div class="g-item reveal">
+        <img src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=700&q=80" alt="Cardio" loading="lazy"/>
+      </div>
+      <div class="g-item reveal">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=700&q=80" alt="Superación" loading="lazy"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY — ¿Por qué FitTracker?
+  ============================================================ -->
+  <section id="why">
+    <div class="why-img-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=900&q=80"
+        alt="Por qué FitTracker"
+        loading="lazy"
+      />
+    </div>
+    <div class="why-copy reveal">
+      <div class="sec-tag">¿Por qué elegirnos?</div>
+      <h2 class="sec-title">La plataforma que te impulsa</h2>
+      <div class="benefit-list">
+        <div class="benefit-row">
+          <div class="b-num">01</div>
+          <div class="b-text">
+            <h4>Monitoreo sencillo</h4>
+            <p>Interfaz intuitiva que te permite registrar sesiones en segundos, sin complicaciones.</p>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="b-num">02</div>
+          <div class="b-text">
+            <h4>Visualización del progreso</h4>
+            <p>Gráficas claras y comparativas para ver tu transformación de forma motivadora.</p>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="b-num">03</div>
+          <div class="b-text">
+            <h4>Organización de entrenamientos</h4>
+            <p>Calendariza rutinas semanales con recordatorios automáticos y ajustes inteligentes.</p>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="b-num">04</div>
+          <div class="b-text">
+            <h4>Motivación constante</h4>
+            <p>Logros, desafíos y comunidad activa que te mantiene enfocado en tus metas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS — Testimonios
+  ============================================================ -->
+  <section id="testimonials">
+    <div class="test-head reveal">
+      <div class="sec-tag">Testimonios</div>
+      <h2 class="sec-title">Lo que dicen nuestros usuarios</h2>
+      <p class="sec-desc">Miles de personas ya transformaron su físico con FitTracker.</p>
+    </div>
+
+    <div class="test-grid">
+      <!-- Testimonio 1 -->
+      <div class="test-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">
+          "Desde que uso FitTracker bajé 12 kilos en 4 meses. El seguimiento de calorías
+          y el planificador de rutinas son increíblemente fáciles de usar."
+        </p>
+        <div class="test-author">
+          <div class="t-avatar">
+            <img src="https://i.pravatar.cc/72?img=1" alt="Marcos R." />
+          </div>
+          <div>
+            <div class="t-name">Marcos Rodríguez</div>
+            <div class="t-role">Entusiasta del fitness · Buenos Aires</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonio 2 -->
+      <div class="test-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">
+          "Como entrenadora personal, recomiendo FitTracker a todos mis clientes.
+          Las estadísticas hacen mi trabajo mucho más efectivo y preciso."
+        </p>
+        <div class="test-author">
+          <div class="t-avatar">
+            <img src="https://i.pravatar.cc/72?img=5" alt="Laura M." />
+          </div>
+          <div>
+            <div class="t-name">Laura Mendez</div>
+            <div class="t-role">Entrenadora personal · Córdoba</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonio 3 -->
+      <div class="test-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">
+          "Llevo 6 meses usando FitTracker y mis marcas en sentadilla mejoraron
+          un 35%. Es parte esencial de mi preparación deportiva."
+        </p>
+        <div class="test-author">
+          <div class="t-avatar">
+            <img src="https://i.pravatar.cc/72?img=8" alt="Diego F." />
+          </div>
+          <div>
+            <div class="t-name">Diego Fernández</div>
+            <div class="t-role">Atleta amateur · Rosario</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA — Llamado a la acción
+  ============================================================ -->
+  <section id="cta">
+    <div class="reveal">
+      <div class="sec-tag">Únete ahora</div>
+      <h2 class="sec-title">Empieza hoy tu transformación física</h2>
+      <p class="sec-desc">
+        Más de 50,000 personas ya eligieron FitTracker. ¿Estás listo?
+      </p>
+      <a href="login_registro.html"><button  class="button" data-text="Awesome">
+    <span class="actual-text">&nbsp;Únete&nbsp;</span>
+    <span aria-hidden="true" class="hover-text">&nbsp;Únete&nbsp;</span>
+  </button>
+  </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+<!-- From Uiverse.io by david-mohseni --> 
+<ul class="wrapper">
+  <li class="icon facebook">
+    <span class="tooltip">Facebook</span>
+    <svg
+      viewBox="0 0 320 512"
+      height="1.2em"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+      ></path>
+    </svg>
+  </li>
+  <li class="icon twitter">
+    <span class="tooltip">Twitter</span>
+    <svg
+      height="1.8em"
+      fill="currentColor"
+      viewBox="0 0 48 48"
+      xmlns="http://www.w3.org/2000/svg"
+      class="twitter"
+    >
+      <path
+        d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"
+      ></path>
+    </svg>
+  </li>
+  <li class="icon instagram">
+    <span class="tooltip">Instagram</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="1.2em"
+      fill="currentColor"
+      class="bi bi-instagram"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"
+      ></path>
+    </svg>
+  </li>
+</ul>
+
+
+      <!-- Columnas de enlaces -->
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Plataforma</h5>
+          <ul>
+            <li><a href="#">Características</a></li>
+            <li><a href="#">Precios</a></li>
+            <li><a href="#">Rutinas</a></li>
+            <li><a href="#">Nutrición</a></li>
+            <li><a href="#">Comunidad</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Carreras</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="#">Términos de uso</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 FitTracker. Todos los derechos reservados.</span>
+      <span>Hecho con dedicación para quienes nunca se rinden</span>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="main.js"></script>
+
+</body>
+</html>
