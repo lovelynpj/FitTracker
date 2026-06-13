@@ -109,23 +109,21 @@ a {
 }
 
 .nav-item {
+  width: 100%;
+  border: none;
+  background: transparent;
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 1rem;
   border-radius: 8px;
   color: #cbd5e1;
-  transition: all 0.2s;
-  font-size: 0.95rem;
-  text-decoration: none;
-  background: none;
-  border: none;
-  width: 100%;
-  text-align: left;
   cursor: pointer;
-  font-family: inherit;
-  -webkit-appearance: none;
-  appearance: none;
+  transition: all 0.2s;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  text-align: left;
+  text-decoration: none;
 }
 
 .nav-item:hover {
@@ -267,7 +265,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .welcome-title {
@@ -305,7 +303,7 @@ a {
    ============================================================ */
 .stats-section {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 3rem;
 }
@@ -365,6 +363,17 @@ a {
 
 .stat-change.neutral {
   color: #f59e0b;
+}
+
+.exercise-name {
+  color: #b6bcc3;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.exercise-count {
+  color: #64748b;
+  font-size: 0.875rem;
 }
 
 /* ============================================================

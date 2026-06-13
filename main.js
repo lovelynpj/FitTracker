@@ -49,3 +49,13 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => {
   observer.observe(el);
 });
+
+// Navegación del sidebar: botones con atributo data-href
+document.querySelectorAll('.sidebar .nav-item').forEach(item => {
+  item.addEventListener('click', (e) => {
+    const href = item.dataset.href;
+    if (href && href !== '#') {
+      window.location.href = href;
+    }
+  });
+});
