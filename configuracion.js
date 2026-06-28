@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedState = {
     username: 'Adriel',
     email: 'adriel@fittracker.com',
-    theme: 'dark'
   };
 
   const form = document.getElementById('settings-form');
@@ -159,25 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------------------------------------------------------
-     Selector de tema claro / oscuro
-  --------------------------------------------------------- */
-  function applyTheme(theme) {
-    document.body.classList.toggle('light-theme', theme === 'light');
-    themeButtons.forEach(btn => {
-      btn.classList.toggle('selected', btn.getAttribute('data-theme') === theme);
-    });
-  }
-
-  themeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const theme = btn.getAttribute('data-theme');
-      applyTheme(theme);
-    });
-  });
-
-  // Aplicar tema guardado al cargar
-  applyTheme(savedState.theme);
+  
 
   /* ---------------------------------------------------------
      Envío del formulario (simulado, sin backend)
@@ -198,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // "Guardar" en el estado simulado
     savedState.username = usernameInput.value.trim();
     savedState.email = emailInput.value.trim();
-    savedState.theme = document.querySelector('.theme-btn.selected')?.getAttribute('data-theme') || savedState.theme;
 
     // Limpiar campos de contraseña tras guardar
     currentPasswordInput.value = '';
@@ -234,8 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setHint(emailHint, emailInput, '', null);
     setHint(confirmHint, confirmPasswordInput, '', null);
 
-    applyTheme(savedState.theme);
-
+    
     saveStatus.textContent = 'Cambios descartados.';
     saveStatus.style.color = '#94a3b8';
   });

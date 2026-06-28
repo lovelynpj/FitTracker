@@ -190,91 +190,7 @@
   text-align: right;
 }
 
-/* ---------- Selector de tema ---------- */
-.theme-options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
 
-.theme-btn {
-  background: #0f172a;
-  border: 1.5px solid #334155;
-  border-radius: 12px;
-  padding: 1rem;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  transition: all 0.2s;
-  font-family: var(--font-sans);
-}
-
-.theme-btn:hover {
-  border-color: #475569;
-}
-
-.theme-btn.selected {
-  border-color: var(--color-primary);
-  background: rgba(34, 197, 94, 0.08);
-}
-
-.theme-name {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #cbd5e1;
-}
-
-.theme-btn.selected .theme-name {
-  color: #f8fafc;
-}
-
-.theme-preview {
-  width: 100%;
-  height: 60px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-.theme-preview-dark {
-  background: #1e293b;
-  border: 1px solid #334155;
-}
-
-.theme-preview-light {
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-}
-
-.tp-bar {
-  width: 40%;
-  height: 8px;
-  border-radius: 4px;
-  background: var(--color-primary);
-}
-
-.tp-line {
-  width: 90%;
-  height: 5px;
-  border-radius: 3px;
-}
-
-.tp-line.short {
-  width: 55%;
-}
-
-.theme-preview-dark .tp-line {
-  background: #475569;
-}
-
-.theme-preview-light .tp-line {
-  background: #cbd5e1;
-}
 
 /* ---------- Acciones inferiores ---------- */
 .settings-actions {
@@ -360,98 +276,7 @@
   opacity: 1;
 }
 
-/* ============================================================
-   MODO CLARO (aplicado vía body.light-theme, ver configuracion.js)
-   ============================================================ */
-body.light-theme.dashboard-body {
-  background: #f1f5f9;
-}
 
-body.light-theme .sidebar {
-  background: #ffffff;
-  border-right: 1px solid #e2e8f0;
-  color: #0f172a;
-}
-
-body.light-theme .sidebar-header {
-  border-bottom: 1px solid #e2e8f0;
-}
-
-body.light-theme .logo-text {
-  color: #0f172a;
-}
-
-body.light-theme .nav-item {
-  color: #475569;
-}
-
-body.light-theme .nav-item:hover {
-  background: #f1f5f9;
-  color: #0f172a;
-}
-
-body.light-theme .sidebar-footer {
-  border-top: 1px solid #e2e8f0;
-}
-
-body.light-theme .dark-mode-toggle {
-  border: 1px solid #e2e8f0;
-  color: #475569;
-}
-
-body.light-theme .dark-mode-toggle:hover {
-  background: #f1f5f9;
-  color: #0f172a;
-}
-
-body.light-theme .main-content {
-  background: #f1f5f9;
-}
-
-body.light-theme .search-box {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  color: #0f172a;
-}
-
-body.light-theme .user-name,
-body.light-theme .settings-title,
-body.light-theme .settings-card-header h3 {
-  color: #0f172a;
-}
-
-body.light-theme .settings-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-}
-
-body.light-theme .form-field input[type="text"],
-body.light-theme .form-field input[type="email"],
-body.light-theme .form-field input[type="password"] {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  color: #0f172a;
-}
-
-body.light-theme .theme-btn {
-  background: #f8fafc;
-  border: 1.5px solid #e2e8f0;
-}
-
-body.light-theme .btn-discard {
-  border: 1px solid #e2e8f0;
-  color: #475569;
-}
-
-body.light-theme .btn-discard:hover {
-  background: #f1f5f9;
-  color: #0f172a;
-}
-
-body.light-theme .toast {
-  background: #ffffff;
-  color: #0f172a;
-}
 
 /* ============================================================
    RESPONSIVE
@@ -487,8 +312,29 @@ body.light-theme .toast {
   }
 }
 
-@media (max-width: 480px) {
-  .theme-options {
-    grid-template-columns: 1fr;
-  }
+
+
+/* ============================================================
+   LIGHT THEME — configuracion
+   (el switch CSS está en inicio_log.css que ya carga esta página)
+   ============================================================ */
+body.light-theme .settings-title { color: #0f172a; }
+body.light-theme .settings-subtitle { color: #475569; }
+body.light-theme .settings-card { background: #ffffff; border-color: #e2e8f0; }
+body.light-theme .settings-card:hover { border-color: #cbd5e1; }
+body.light-theme .settings-card-header h3 { color: #0f172a; }
+body.light-theme .settings-card-desc { color: #475569; }
+body.light-theme .form-field label { color: #334155; }
+body.light-theme .form-field input[type="text"],
+body.light-theme .form-field input[type="email"],
+body.light-theme .form-field input[type="password"] {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #0f172a;
 }
+body.light-theme .form-field input::placeholder { color: #94a3b8; }
+body.light-theme .strength-bar { background: #e2e8f0; }
+body.light-theme .strength-label { color: #94a3b8; }
+body.light-theme .btn-discard { border-color: #e2e8f0; color: #334155; }
+body.light-theme .btn-discard:hover { background: #e2e8f0; color: #0f172a; }
+body.light-theme .toast { background: #ffffff; border-color: var(--color-primary); color: #0f172a; }
