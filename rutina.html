@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitTracker — Dashboard</title>
+
+  <!-- Fuentes para letras -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="rutina.css" />
+</head>
+<body class="dashboard-body">
+
+  <!-- ============================================================
+       barra de navegacion lateral
+  ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+      </div>
+      <h1 class="logo-text">FitTracker</h1>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="inicio_log.html"  class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a href="rutina.html"  class="nav-item active">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">Rutinas</span>
+      </a>
+      <a href="ejercicios.html"  class="nav-item">
+        <span class="nav-icon">💪</span>
+        <span class="nav-label">Ejercicios</span>
+      </a>
+      <a href="progreso.html"  class="nav-item">
+        <span class="nav-icon">📈</span>
+        <span class="nav-label">Progreso</span>
+      </a>
+      <a href="peso_medida.html"  class="nav-item">
+        <span class="nav-icon">⚖️</span>
+        <span class="nav-label">Peso y medidas</span>
+      </a>
+      <a href="perfil.html"  class="nav-item">
+        <span class="nav-icon">👤</span>
+        <span class="nav-label">Perfil</span>
+      </a>
+      <a href="configuracion.html"  class="nav-item">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Configuración</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="dark-mode-toggle" id="dark-mode-btn">
+        <span>🌙</span> Modo oscuro
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       contenido del cuerpo principal
+  ============================================================ -->
+  <main class="main-content">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <input type="text" class="search-box" placeholder="Buscar ejercicios, rutinas...">
+      </div>
+      <div class="header-right">
+        <button class="notification-btn">🔔</button>
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <span class="user-name">Adriel</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Titulo de la sección -->
+    <section class="welcome-section">
+      <div>
+        <h2 class="welcome-title">Rutinas </h2>
+        <p class="welcome-subtitle">4 rutinas creadas</p>
+      </div>
+      <button class="btn-new-routine">+ Nueva rutina</button>
+    </section>
+
+    <!-- Cartas de rutinas -->
+    <section class="stats-section">
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-value">PUSH - Pecho & Tríceps</h3>
+        </div>
+        <h3 class="exercise-name">*Press Banca Plano (Pecho)</h3>
+        <h3 class="exercise-name">*Press Banca Inclinado (Pecho)</h3>
+        <h3 class="exercise-name">*Apertura con Mancuernas (Pecho)</h3>
+        <p class="exercise-count">+3 ejercicios más</p>
+        <div class="stat-change positive">dia de empuje</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-value">PULL - Espalda & Bíceps</h3>
+        </div>
+        <h3 class="exercise-name">*Remo con Barra (Espalda)</h3>
+        <h3 class="exercise-name">*Jalón al Pecho (Espalda)</h3>
+        <h3 class="exercise-name">*Remo con Mancuerna (Espalda)</h3>
+        <p class="exercise-count">+3 ejercicios más</p>
+        <div class="stat-change positive">dia de jalada</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-value">Piernas - Completo</h3>
+          </div>
+        <h3 class="exercise-name">*Sentadillas (Piernas)</h3>
+        <h3 class="exercise-name">*Prensa de Piernas (Piernas)</h3>
+        <h3 class="exercise-name">*Peso Muerto Rumano (Piernas)</h3>
+        <p class="exercise-count">+3 ejercicios más</p>
+        <div class="stat-change positive">Dia de piernas completo</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-value">Hombros & Abdomen</h3>
+          </div>
+        <h3 class="exercise-name">*Press de Hombros (Hombros)</h3>
+        <h3 class="exercise-name">*Elevaciones Laterales (Hombros)</h3>
+        <h3 class="exercise-name">*Crunches (Abdomen)</h3>
+        <p class="exercise-count">+3 ejercicios más</p>
+        <div class="stat-change positive">Hombros y Abdomen</div>
+      </div>
+    </section>
+
+    </section>
+  </main>
+
+  <script src="main.js"></script>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitTracker — Configuración</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="inicio_log.css" />
+  <link rel="stylesheet" href="configuracion.css" />
+</head>
+<body class="dashboard-body">
+
+  <!-- ============================================================
+       barra de navegacion lateral
+  ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+      </div>
+      <h1 class="logo-text">FitTracker</h1>
+    </div>
+
+    <nav class="sidebar-nav">
+  <a href="inicio_log.html" class="nav-item">
+    <span class="nav-icon">📊</span>
+    <span class="nav-label">Dashboard</span>
+  </a>
+
+  <a href="rutina.html" class="nav-item">
+    <span class="nav-icon">📋</span>
+    <span class="nav-label">Rutinas</span>
+  </a>
+
+  <a href="ejercicios.html" class="nav-item">
+    <span class="nav-icon">💪</span>
+    <span class="nav-label">Ejercicios</span>
+  </a>
+  <a href="progreso.html" class="nav-item">
+    <span class="nav-icon">📈</span>
+    <span class="nav-label">Progreso</span>
+  </a>
+
+  <a href="peso_medida.html" class="nav-item">
+    <span class="nav-icon">⚖️</span>
+    <span class="nav-label">Peso y medidas</span>
+  </a>
+
+  <a href="perfil.html" class="nav-item">
+    <span class="nav-icon">👤</span>
+    <span class="nav-label">Perfil</span>
+  </a>
+
+  <a href="configuracion.html" class="nav-item active">
+    <span class="nav-icon">⚙️</span>
+    <span class="nav-label">Configuración</span>
+  </a>
+</nav>
+
+    <div class="sidebar-footer">
+      <button class="dark-mode-toggle" id="dark-mode-btn">
+        <span>🌙</span> Modo oscuro
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       contenido del cuerpo principal
+  ============================================================ -->
+  <main class="main-content">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <input type="text" class="search-box" placeholder="Buscar ejercicios, rutinas...">
+      </div>
+      <div class="header-right">
+        <button class="notification-btn">🔔</button>
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <span class="user-name">Adriel</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page title -->
+    <section class="settings-intro">
+      <div>
+        <h2 class="settings-title">Configuración ⚙️</h2>
+        <p class="settings-subtitle">Gestioná tu cuenta y personalizá tu experiencia en FitTracker.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FORMULARIO DE CONFIGURACIÓN
+    ============================================================ -->
+    <form id="settings-form" class="settings-grid" novalidate>
+
+      <!-- Datos de la cuenta -->
+      <div class="settings-card">
+        <div class="settings-card-header">
+          <span class="settings-card-icon">👤</span>
+          <h3>Datos de la cuenta</h3>
+        </div>
+
+        <div class="form-field">
+          <label for="username">Nombre de usuario</label>
+          <input type="text" id="username" name="username" value="Adriel" placeholder="Tu nombre de usuario" autocomplete="username" />
+          <span class="field-hint" id="username-hint"></span>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" value="adriel@fittracker.com" placeholder="tu@correo.com" autocomplete="email" />
+          <span class="field-hint" id="email-hint"></span>
+        </div>
+      </div>
+
+      <!-- Seguridad -->
+      <div class="settings-card">
+        <div class="settings-card-header">
+          <span class="settings-card-icon">🔒</span>
+          <h3>Seguridad</h3>
+        </div>
+
+        <div class="form-field">
+          <label for="current-password">Contraseña actual</label>
+          <div class="password-wrap">
+            <input type="password" id="current-password" name="current-password" placeholder="••••••••" autocomplete="current-password" />
+            <button type="button" class="toggle-pass" data-target="current-password" aria-label="Mostrar contraseña">👁️</button>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="new-password">Nueva contraseña</label>
+          <div class="password-wrap">
+            <input type="password" id="new-password" name="new-password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" />
+            <button type="button" class="toggle-pass" data-target="new-password" aria-label="Mostrar contraseña">👁️</button>
+          </div>
+          <div class="password-strength" id="password-strength">
+            <div class="strength-bar"><span id="strength-fill"></span></div>
+            <span class="strength-label" id="strength-label">&nbsp;</span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="confirm-password">Confirmar nueva contraseña</label>
+          <div class="password-wrap">
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Repetí la nueva contraseña" autocomplete="new-password" />
+            <button type="button" class="toggle-pass" data-target="confirm-password" aria-label="Mostrar contraseña">👁️</button>
+          </div>
+          <span class="field-hint" id="confirm-hint"></span>
+        </div>
+      </div>
+
+      <!-- Apariencia -->
+      <div class="settings-card">
+        <div class="settings-card-header">
+          <span class="settings-card-icon">🎨</span>
+          <h3>Apariencia</h3>
+        </div>
+
+        <p class="settings-card-desc">Elegí cómo querés ver FitTracker.</p>
+
+        <div class="theme-options" id="theme-options">
+          <button type="button" class="theme-btn" data-theme="dark">
+            <span class="theme-preview theme-preview-dark">
+              <span class="tp-bar"></span>
+              <span class="tp-line"></span>
+              <span class="tp-line short"></span>
+            </span>
+            <span class="theme-name">🌙 Oscuro</span>
+          </button>
+          <button type="button" class="theme-btn" data-theme="light">
+            <span class="theme-preview theme-preview-light">
+              <span class="tp-bar"></span>
+              <span class="tp-line"></span>
+              <span class="tp-line short"></span>
+            </span>
+            <span class="theme-name">☀️ Claro</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Acciones -->
+      <div class="settings-actions">
+        <span class="save-status" id="save-status"></span>
+        <div class="settings-actions-buttons">
+          <button type="button" class="btn-discard" id="discard-btn">Descartar</button>
+          <button type="submit" class="btn-save">💾 Guardar cambios</button>
+        </div>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- Toast de confirmación -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="main.js"></script>
+  <script src="configuracion.js"></script>
+</body>
+</html>

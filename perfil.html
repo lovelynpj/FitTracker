@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitTracker · Perfil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+      </div>
+      <h1 class="logo-text">FitTracker</h1>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="inicio_log.html" class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a href="rutina.html" class="nav-item">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">Rutinas</span>
+      </a>
+      <a href="ejercicios.html" class="nav-item">
+        <span class="nav-icon">💪</span>
+        <span class="nav-label">Ejercicios</span>
+      </a>
+      <a href="progreso.html"  class="nav-item">
+        <span class="nav-icon">📈</span>
+        <span class="nav-label">Progreso</span>
+      </a>
+      <a href="peso_medida.html" class="nav-item">
+        <span class="nav-icon">⚖️</span>
+        <span class="nav-label">Peso y medidas</span>
+      </a>
+      <a href="perfil.html" class="nav-item active">
+        <span class="nav-icon">👤</span>
+        <span class="nav-label">Perfil</span>
+      </a>
+      <a href="configuracion.html" class="nav-item">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Configuración</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="dark-mode-toggle" id="dark-mode-btn">
+        <span>🌙</span> Modo oscuro
+      </button>
+    </div>
+  </aside>
+
+<main>
+
+  <div class="page-header">
+    <div class="nav-mini-profile">
+      <span class="nav-streak">🔥 9 días</span>
+      <img id="nav-avatar" src="https://i.pravatar.cc/80?img=12" alt="Avatar">
+    </div>
+  </div>
+
+  <!-- ============ HERO: perfil + visor corporal ============ -->
+  <section class="hero">
+
+    <div class="card profile-card fade-up">
+      <div class="profile-top">
+        <div class="avatar-wrap">
+          <div class="avatar-ring" style="--p:65"></div>
+          <img id="pf-avatar" src="" alt="Foto de perfil">
+        </div>
+        <div>
+          <h2 class="profile-name" id="pf-name">—</h2>
+          <div class="profile-level"><span class="dot"></span> Nivel <span id="pf-level">—</span></div>
+        </div>
+      </div>
+
+      <div class="profile-metrics">
+        <div class="metric"><b id="pf-weight">—</b><span>Peso</span></div>
+        <div class="metric"><b id="pf-height">—</b><span>Altura</span></div>
+        <div class="metric"><b id="pf-imc">—</b><span>IMC</span></div>
+        <div class="metric"><b id="pf-age">—</b><span>Edad</span></div>
+        <div class="metric"><b id="pf-days">—</b><span>Días entrenados</span></div>
+        <div class="metric"><b id="pf-streak">—</b><span>Racha (días)</span></div>
+      </div>
+
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px;">Objetivos</div>
+        <div class="profile-goals" id="pf-goals"></div>
+      </div>
+    </div>
+
+    <div class="card body-viewer fade-up">
+      <div class="viewer-header">
+        <div class="viewer-tabs" aria-label="Vista del cuerpo">
+          <button class="active" data-side="front">Frente</button>
+          <button data-side="back">Espalda</button>
+        </div>
+        <div class="viewer-tabs" aria-label="Modo de visualización">
+          <button class="active" data-view="3d">Modelo 3D</button>
+          <button data-view="map">Mapa muscular</button>
+        </div>
+      </div>
+
+      <div class="viewer-stage">
+        <div class="scan-line"></div>
+
+        <div class="sketchfab-embed-wrapper">
+          <iframe title="Male Body" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
+            execution-while-not-rendered web-share
+            src="https://sketchfab.com/models/15a422001834483c9750ce6117d59cc1/embed?autostart=1&ui_theme=dark&transparent=1&ui_infos=0&ui_controls=1&ui_watermark=0&dnt=1">
+          </iframe>
+        </div>
+
+        <!-- MAPA FRONTAL -->
+        <svg class="muscle-map active" data-side="front" viewBox="0 0 220 480" xmlns="http://www.w3.org/2000/svg">
+          <ellipse class="body-outline" cx="110" cy="30" rx="20" ry="24"/>
+          <path class="body-outline" d="M70 58 q40 -14 80 0 l8 70 -14 110 q-44 16 -88 0 l-14 -110 z"/>
+          <path class="body-outline" d="M58 70 l-22 90 14 60 18 -8 -10 -70 z"/>
+          <path class="body-outline" d="M162 70 l22 90 -14 60 -18 -8 10 -70 z"/>
+          <path class="body-outline" d="M86 236 q24 8 48 0 l6 110 -10 110 -18 4 -6 -100 -6 100 -18 -4 -10 -110 z"/>
+
+          <ellipse class="muscle-zone" data-muscle="deltoides" cx="64" cy="68" rx="13" ry="15"/>
+          <ellipse class="muscle-zone" data-muscle="deltoides" cx="156" cy="68" rx="13" ry="15"/>
+          <path class="muscle-zone" data-muscle="pectoral" d="M82 62 q28 -10 56 0 l-3 36 q-25 10 -50 0 z"/>
+          <ellipse class="muscle-zone" data-muscle="biceps" cx="55" cy="100" rx="11" ry="22"/>
+          <ellipse class="muscle-zone" data-muscle="biceps" cx="165" cy="100" rx="11" ry="22"/>
+          <ellipse class="muscle-zone" data-muscle="antebrazos" cx="48" cy="142" rx="9" ry="20"/>
+          <ellipse class="muscle-zone" data-muscle="antebrazos" cx="172" cy="142" rx="9" ry="20"/>
+          <path class="muscle-zone" data-muscle="abdominales" d="M90 100 q20 8 40 0 l-2 60 q-18 8 -36 0 z"/>
+          <path class="muscle-zone" data-muscle="obliquos" d="M76 104 q8 30 10 56 l-14 4 q-6 -32 -2 -58 z"/>
+          <path class="muscle-zone" data-muscle="obliquos" d="M144 104 q-8 30 -10 56 l14 4 q6 -32 2 -58 z"/>
+          <path class="muscle-zone" data-muscle="cuadriceps" d="M90 248 q22 7 40 0 l4 95 -22 4 -2 -60 -2 60 -22 -4 z"/>
+          <ellipse class="muscle-zone" data-muscle="tibial" cx="92" cy="392" rx="9" ry="34"/>
+          <ellipse class="muscle-zone" data-muscle="tibial" cx="128" cy="392" rx="9" ry="34"/>
+        </svg>
+
+        <!-- MAPA POSTERIOR -->
+        <svg class="muscle-map" data-side="back" viewBox="0 0 220 480" xmlns="http://www.w3.org/2000/svg">
+          <ellipse class="body-outline" cx="110" cy="30" rx="20" ry="24"/>
+          <path class="body-outline" d="M70 58 q40 -14 80 0 l8 70 -14 110 q-44 16 -88 0 l-14 -110 z"/>
+          <path class="body-outline" d="M58 70 l-22 90 14 60 18 -8 -10 -70 z"/>
+          <path class="body-outline" d="M162 70 l22 90 -14 60 -18 -8 10 -70 z"/>
+          <path class="body-outline" d="M86 236 q24 8 48 0 l6 110 -10 110 -18 4 -6 -100 -6 100 -18 -4 -10 -110 z"/>
+
+          <path class="muscle-zone" data-muscle="trapecio" d="M88 56 q22 -10 44 0 l6 30 -28 10 -28 -10 z"/>
+          <ellipse class="muscle-zone" data-muscle="deltoides" cx="64" cy="68" rx="13" ry="15"/>
+          <ellipse class="muscle-zone" data-muscle="deltoides" cx="156" cy="68" rx="13" ry="15"/>
+          <path class="muscle-zone" data-muscle="dorsales" d="M82 90 q28 10 56 0 l-4 50 q-24 10 -48 0 z"/>
+          <ellipse class="muscle-zone" data-muscle="triceps" cx="55" cy="100" rx="11" ry="22"/>
+          <ellipse class="muscle-zone" data-muscle="triceps" cx="165" cy="100" rx="11" ry="22"/>
+          <ellipse class="muscle-zone" data-muscle="antebrazos" cx="48" cy="142" rx="9" ry="20"/>
+          <ellipse class="muscle-zone" data-muscle="antebrazos" cx="172" cy="142" rx="9" ry="20"/>
+          <path class="muscle-zone" data-muscle="gluteos" d="M86 240 q24 10 48 0 l-2 36 q-22 8 -44 0 z"/>
+          <ellipse class="muscle-zone" data-muscle="isquiotibiales" cx="96" cy="312" rx="13" ry="34"/>
+          <ellipse class="muscle-zone" data-muscle="isquiotibiales" cx="124" cy="312" rx="13" ry="34"/>
+          <ellipse class="muscle-zone" data-muscle="gemelos" cx="96" cy="392" rx="11" ry="34"/>
+          <ellipse class="muscle-zone" data-muscle="gemelos" cx="124" cy="392" rx="11" ry="34"/>
+        </svg>
+      </div>
+
+      <div class="viewer-legend">
+        <span><i style="background:rgba(34,197,94,0.4)"></i> Tocá un músculo para ver su detalle</span>
+        <span><i style="background:var(--green-glow)"></i> Seleccionado</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ESTADÍSTICAS ============ -->
+  <section>
+    <div class="eyebrow">Resumen</div>
+    <h2 class="section-title">Tus estadísticas</h2>
+    <p class="section-sub">Un vistazo general a tu rendimiento acumulado en FitTracker.</p>
+    <div class="stats-grid" id="stats-grid"></div>
+  </section>
+
+  <!-- ============ RANKINGS POR MÚSCULO ============ -->
+  <section>
+    <div class="eyebrow">Sistema de rangos</div>
+    <h2 class="section-title">Ranking por músculo</h2>
+    <p class="section-sub">Cada músculo evoluciona de forma independiente según entrenamientos, volumen, peso levantado, frecuencia y consistencia semanal.</p>
+    <div class="rank-scale" id="rank-scale"></div>
+    <br>
+    <div class="muscle-grid" id="muscle-grid"></div>
+  </section>
+
+  <!-- ============ GRÁFICOS ============ -->
+  <section>
+    <div class="eyebrow">Evolución</div>
+    <h2 class="section-title">Progreso visual</h2>
+    <p class="section-sub">Comparación semanal y balance entre grupos musculares.</p>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Progreso general — 6 semanas</h3>
+        <p>Comparado con el mes anterior.</p>
+        <canvas id="chart-weekly"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Balance muscular</h3>
+        <p>Tus 6 grupos con mejor desarrollo.</p>
+        <canvas id="chart-balance"></canvas>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ MODAL: detalle de músculo ============ -->
+<div class="modal-overlay" id="muscleModal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-head">
+      <div>
+        <h3 class="modal-title" id="modal-title">—</h3>
+        <div class="modal-area" id="modal-area">—</div>
+      </div>
+      <span class="rank-badge" id="modal-rank-badge">—</span>
+    </div>
+
+    <div class="modal-section">
+      <h4>Métricas</h4>
+      <div class="modal-metrics" id="modal-metrics"></div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Rutinas relacionadas</h4>
+      <div class="tag-list" id="modal-routines"></div>
+    </div>
+
+    <div class="modal-section">
+      <h4>Ejercicios recomendados</h4>
+      <div class="tag-list" id="modal-exercises"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="perfil.js"></script>
+</body>
+</html>

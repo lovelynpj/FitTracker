@@ -1,0 +1,372 @@
+/* ============================================================
+   PESO Y MEDIDAS — extiende rutina.css / progreso.css / style.css
+   Reutiliza: --color-primary, --font-display, --font-sans,
+   .chart-card, .chart-header, .chart-canvas-wrap, .welcome-section
+   ============================================================ */
+
+/* ============================================================
+   SECCIÓN SUPERIOR: gráfico + formulario
+   ============================================================ */
+.weight-top-section {
+  grid-template-columns: 2fr 1fr;
+  margin-bottom: 1.5rem;
+  align-items: stretch;
+}
+
+.weight-side-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ---- Formulario de registro ---- */
+.weight-form-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.weight-field-label {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.weight-field-label:first-child {
+  margin-top: 0;
+}
+
+.weight-input {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+  color: #f8fafc;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+}
+
+.weight-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* Date/number input controls de Chrome/Firefox en tema oscuro */
+.weight-input::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+  cursor: pointer;
+}
+
+.btn-register {
+  margin-top: 1.1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-register:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ---- Card de último registro ---- */
+.weight-last-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.weight-last-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin-bottom: 0.3rem;
+}
+
+.weight-last-label {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.weight-last-delta {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.weight-last-delta.down {
+  color: var(--color-primary);
+}
+
+.weight-last-delta.up {
+  color: #ef4444;
+}
+
+/* ============================================================
+   HISTORIAL
+   ============================================================ */
+.weight-history-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.75rem;
+}
+
+.weight-history-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.weight-history-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.weight-history-item {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 1.6rem 1rem 1rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.weight-history-item:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* ---- Botón de borrar (Uiverse by aaronross1, adaptado) ---- */
+.weight-history-delete {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #14141a;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  opacity: 0;
+  transition: width 0.3s, border-radius 0.3s, background-color 0.3s, opacity 0.2s;
+}
+
+.weight-history-item:hover .weight-history-delete {
+  opacity: 1;
+}
+
+.weight-history-delete .delete-svgIcon {
+  width: 10px;
+  transition: width 0.3s, transform 0.3s;
+}
+
+.weight-history-delete .delete-svgIcon path {
+  fill: white;
+}
+
+.weight-history-delete:hover {
+  width: 64px;
+  border-radius: 50px;
+  background-color: rgb(255, 69, 69);
+}
+
+.weight-history-delete:hover .delete-svgIcon {
+  width: 13px;
+  transform: rotate(360deg);
+}
+
+.weight-history-delete::before {
+  display: none;
+  content: "Borrar";
+  color: white;
+  font-size: 2px;
+  white-space: nowrap;
+}
+
+.weight-history-delete:hover::before {
+  display: block;
+  padding-right: 8px;
+  font-size: 10px;
+  font-family: var(--font-sans);
+}
+
+.weight-history-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+
+.weight-history-date {
+  color: #64748b;
+  font-size: 0.78rem;
+  margin-bottom: 0.5rem;
+}
+
+.weight-history-value {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1200px) {
+  .weight-top-section {
+    grid-template-columns: 1fr;
+  }
+
+  .weight-history-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .weight-history-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .weight-history-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   MODAL DE CONFIRMACIÓN (Uiverse by 3bdel3ziz-T, adaptado)
+   ============================================================ */
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.confirm-overlay.is-visible {
+  display: flex;
+}
+
+.confirm-card {
+  width: 280px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.confirm-icon {
+  width: 48px;
+  height: 48px;
+  color: #ef4444;
+  margin: 0 auto;
+  display: block;
+}
+
+.confirm-card:hover .confirm-icon {
+  animation: confirm-bounce 0.6s;
+}
+
+@keyframes confirm-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.confirm-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0.9rem 0 0.6rem;
+}
+
+.confirm-text {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #94a3b8;
+  padding: 0 0.3rem;
+  margin-bottom: 1.1rem;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.confirm-cancel,
+.confirm-delete {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease-in;
+  font-family: var(--font-sans);
+}
+
+.confirm-cancel {
+  background: #334155;
+  border: 2px solid #475569;
+  color: #cbd5e1;
+}
+
+.confirm-cancel:hover {
+  border-color: #1e293b;
+  background: #1e293b;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.confirm-delete {
+  background: #ef4444;
+  border: 2px solid #ef4444;
+  color: white;
+}
+
+.confirm-delete:hover {
+  background: transparent;
+  color: #ef4444;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}

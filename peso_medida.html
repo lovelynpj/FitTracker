@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitTracker — Peso y medidas</title>
+
+  <!-- Fuentes para letras -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="rutina.css" />
+  <link rel="stylesheet" href="progreso.css" />
+  <link rel="stylesheet" href="peso_medida.css" />
+
+  <!-- Chart.js para el gráfico (archivo local, sin depender de internet) -->
+  <script src="chart.umd.min.js" defer></script>
+</head>
+<body class="dashboard-body">
+
+  <!-- ============================================================
+       barra de navegacion lateral
+  ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+      </div>
+      <h1 class="logo-text">FitTracker</h1>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="inicio_log.html" class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a href="rutina.html" class="nav-item">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">Rutinas</span>
+      </a>
+      <a href="ejercicios.html" class="nav-item">
+        <span class="nav-icon">💪</span>
+        <span class="nav-label">Ejercicios</span>
+      </a>
+      <a href="progreso.html" class="nav-item">
+        <span class="nav-icon">📈</span>
+        <span class="nav-label">Progreso</span>
+      </a>
+      <a href="peso_medida.html" class="nav-item active">
+        <span class="nav-icon">⚖️</span>
+        <span class="nav-label">Peso y medidas</span>
+      </a>
+      <a href="perfil.html" class="nav-item">
+        <span class="nav-icon">👤</span>
+        <span class="nav-label">Perfil</span>
+      </a>
+      <a href="configuracion.html" class="nav-item">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Configuración</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="dark-mode-toggle" id="dark-mode-btn">
+        <span>🌙</span> Modo oscuro
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       contenido del cuerpo principal
+  ============================================================ -->
+  <main class="main-content">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <input type="text" class="search-box" placeholder="Buscar ejercicios, rutinas...">
+      </div>
+      <div class="header-right">
+        <button class="notification-btn">🔔</button>
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <span class="user-name">Adriel</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Titulo de la sección -->
+    <section class="welcome-section">
+      <div>
+        <h2 class="welcome-title">Peso y medidas</h2>
+        <p class="welcome-subtitle">Registrá tu peso y seguí tu evolución</p>
+      </div>
+    </section>
+
+    <!-- Gráfico + formulario de registro -->
+    <section class="charts-section weight-top-section">
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Peso (kg)</h3>
+        </div>
+        <div class="chart-canvas-wrap" style="position:relative;height:230px;">
+          <canvas id="bodyWeightChart"></canvas>
+        </div>
+      </div>
+
+      <div class="weight-side-col">
+        <div class="weight-form-card">
+          <label class="weight-field-label" for="weight-date">Fecha</label>
+          <input type="date" id="weight-date" class="weight-input" value="2026-06-09">
+
+          <label class="weight-field-label" for="weight-value">Peso (kg)</label>
+          <input type="number" id="weight-value" class="weight-input" step="0.1" placeholder="78.5" value="78.5">
+
+          <button class="btn-register" id="register-weight-btn">+ Registrar</button>
+        </div>
+
+        <div class="weight-last-card">
+          <h3 class="weight-last-value" id="last-weight-value">78 kg</h3>
+          <p class="weight-last-label">Último registro</p>
+          <p class="weight-last-delta down" id="last-weight-delta">↓ 1.5 kg vs inicio</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Historial -->
+    <section class="weight-history-card">
+      <h3 class="weight-history-title">Historial</h3>
+      <div class="weight-history-grid" id="weight-history-grid">
+        <div class="weight-history-item">
+          <p class="weight-history-date">5 jun 2026</p>
+          <h4 class="weight-history-value">78 kg</h4>
+        </div>
+        <div class="weight-history-item">
+          <p class="weight-history-date">29 may 2026</p>
+          <h4 class="weight-history-value">78.2 kg</h4>
+        </div>
+        <div class="weight-history-item">
+          <p class="weight-history-date">22 may 2026</p>
+          <h4 class="weight-history-value">78.5 kg</h4>
+        </div>
+        <div class="weight-history-item">
+          <p class="weight-history-date">15 may 2026</p>
+          <h4 class="weight-history-value">78.8 kg</h4>
+        </div>
+        <div class="weight-history-item">
+          <p class="weight-history-date">8 may 2026</p>
+          <h4 class="weight-history-value">79.2 kg</h4>
+        </div>
+        <div class="weight-history-item">
+          <p class="weight-history-date">1 may 2026</p>
+          <h4 class="weight-history-value">79.5 kg</h4>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de confirmación para borrar un registro -->
+  <div class="confirm-overlay" id="confirm-overlay">
+    <div class="confirm-card">
+      <svg
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        class="confirm-icon"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+          fill-rule="evenodd"
+        ></path>
+      </svg>
+      <h2 class="confirm-title">¿Estás seguro?</h2>
+      <p class="confirm-text">Esta acción no se puede deshacer. El registro se borrará del historial y del gráfico.</p>
+      <div class="confirm-actions">
+        <button class="confirm-cancel" id="confirm-cancel-btn">Cancelar</button>
+        <button class="confirm-delete" id="confirm-delete-btn">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="peso_medida.js" defer></script>
+</body>
+</html>

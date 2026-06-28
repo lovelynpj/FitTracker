@@ -1,0 +1,494 @@
+/* ============================================================
+   CONFIGURACIÓN — Ajustes del usuario
+   Hereda variables de inicio_log.css (--color-primary, --font-sans, etc.)
+   ============================================================ */
+
+/* ---------- Intro de la sección ---------- */
+.settings-intro {
+  margin-bottom: 2.5rem;
+}
+
+.settings-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.settings-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+/* ---------- Grid principal ---------- */
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 980px;
+}
+
+.settings-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: border-color 0.2s;
+}
+
+.settings-card:hover {
+  border-color: #3f4f64;
+}
+
+.settings-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.settings-card-icon {
+  font-size: 1.35rem;
+}
+
+.settings-card-header h3 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.settings-card-desc {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Campos de formulario ---------- */
+.form-field {
+  margin-bottom: 1.4rem;
+}
+
+.form-field:last-child {
+  margin-bottom: 0;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  color: #f8fafc;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.form-field input::placeholder {
+  color: #64748b;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.form-field input.input-error {
+  border-color: #ef4444;
+}
+
+.form-field input.input-valid {
+  border-color: var(--color-primary);
+}
+
+.field-hint {
+  display: block;
+  min-height: 1.1rem;
+  font-size: 0.78rem;
+  margin-top: 0.4rem;
+}
+
+.field-hint.error {
+  color: #ef4444;
+}
+
+.field-hint.success {
+  color: var(--color-primary);
+}
+
+/* ---------- Campo de contraseña con toggle ---------- */
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 2.75rem;
+}
+
+.toggle-pass {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.toggle-pass:hover {
+  opacity: 1;
+}
+
+/* ---------- Medidor de fortaleza de contraseña ---------- */
+.password-strength {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.6rem;
+}
+
+.strength-bar {
+  flex: 1;
+  height: 6px;
+  background: #334155;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.strength-bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 9999px;
+  background: #ef4444;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.strength-label {
+  font-size: 0.78rem;
+  color: #64748b;
+  min-width: 70px;
+  text-align: right;
+}
+
+/* ---------- Selector de tema ---------- */
+.theme-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.theme-btn {
+  background: #0f172a;
+  border: 1.5px solid #334155;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s;
+  font-family: var(--font-sans);
+}
+
+.theme-btn:hover {
+  border-color: #475569;
+}
+
+.theme-btn.selected {
+  border-color: var(--color-primary);
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.theme-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.theme-btn.selected .theme-name {
+  color: #f8fafc;
+}
+
+.theme-preview {
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.theme-preview-dark {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+.theme-preview-light {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+
+.tp-bar {
+  width: 40%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--color-primary);
+}
+
+.tp-line {
+  width: 90%;
+  height: 5px;
+  border-radius: 3px;
+}
+
+.tp-line.short {
+  width: 55%;
+}
+
+.theme-preview-dark .tp-line {
+  background: #475569;
+}
+
+.theme-preview-light .tp-line {
+  background: #cbd5e1;
+}
+
+/* ---------- Acciones inferiores ---------- */
+.settings-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.save-status {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  flex: 1;
+}
+
+.settings-actions-buttons {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.btn-discard {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid #334155;
+  border-radius: 9999px;
+  color: #cbd5e1;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-discard:hover {
+  background: #334155;
+  color: #f8fafc;
+}
+
+.btn-save {
+  padding: 0.75rem 1.75rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-save:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-save:active {
+  transform: translateY(0);
+}
+
+/* ---------- Toast de confirmación ---------- */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #1e293b;
+  border: 1px solid var(--color-primary);
+  color: #f8fafc;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-xl);
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ============================================================
+   MODO CLARO (aplicado vía body.light-theme, ver configuracion.js)
+   ============================================================ */
+body.light-theme.dashboard-body {
+  background: #f1f5f9;
+}
+
+body.light-theme .sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+body.light-theme .sidebar-header {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body.light-theme .logo-text {
+  color: #0f172a;
+}
+
+body.light-theme .nav-item {
+  color: #475569;
+}
+
+body.light-theme .nav-item:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+body.light-theme .sidebar-footer {
+  border-top: 1px solid #e2e8f0;
+}
+
+body.light-theme .dark-mode-toggle {
+  border: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+body.light-theme .dark-mode-toggle:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+body.light-theme .main-content {
+  background: #f1f5f9;
+}
+
+body.light-theme .search-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+body.light-theme .user-name,
+body.light-theme .settings-title,
+body.light-theme .settings-card-header h3 {
+  color: #0f172a;
+}
+
+body.light-theme .settings-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+body.light-theme .form-field input[type="text"],
+body.light-theme .form-field input[type="email"],
+body.light-theme .form-field input[type="password"] {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+body.light-theme .theme-btn {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+}
+
+body.light-theme .btn-discard {
+  border: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+body.light-theme .btn-discard:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+body.light-theme .toast {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .settings-actions {
+    justify-content: stretch;
+  }
+
+  .settings-actions-buttons {
+    width: 100%;
+  }
+
+  .settings-actions-buttons button {
+    flex: 1;
+  }
+
+  .save-status {
+    width: 100%;
+    text-align: center;
+  }
+
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-options {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitTracker — Progreso</title>
+
+  <!-- Fuentes para letras -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="rutina.css" />
+  <link rel="stylesheet" href="progreso.css" />
+
+  <!-- Chart.js para los gráficos (archivo local, sin depender de internet) -->
+  <script src="chart.umd.min.js" defer></script>
+</head>
+<body class="dashboard-body">
+
+  <!-- ============================================================
+       barra de navegacion lateral
+  ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+      </div>
+      <h1 class="logo-text">FitTracker</h1>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="inicio_log.html" class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a href="rutina.html" class="nav-item">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">Rutinas</span>
+      </a>
+      <a href="ejercicios.html" class="nav-item">
+        <span class="nav-icon">💪</span>
+        <span class="nav-label">Ejercicios</span>
+      </a>
+      <a href="progreso.html"  class="nav-item active">
+        <span class="nav-icon">📈</span>
+        <span class="nav-label">Progreso</span>
+      </a>
+      <a href="peso_medida.html" class="nav-item">
+        <span class="nav-icon">⚖️</span>
+        <span class="nav-label">Peso y medidas</span>
+      </a>
+      <a href="perfil.html" class="nav-item">
+        <span class="nav-icon">👤</span>
+        <span class="nav-label">Perfil</span>
+      </a>
+      <a href="configuracion.html" class="nav-item">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Configuración</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="dark-mode-toggle" id="dark-mode-btn">
+        <span>🌙</span> Modo oscuro
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       contenido del cuerpo principal
+  ============================================================ -->
+  <main class="main-content">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <input type="text" class="search-box" placeholder="Buscar ejercicios, rutinas...">
+      </div>
+      <div class="header-right">
+        <button class="notification-btn">🔔</button>
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <span class="user-name">Adriel</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Titulo de la sección -->
+    <section class="welcome-section">
+      <div>
+        <h2 class="welcome-title">Progreso</h2>
+        <p class="welcome-subtitle">Visualiza tu evolución a lo largo del tiempo</p>
+      </div>
+    </section>
+
+    <!-- Resumen rápido -->
+    <section class="progress-summary">
+      <div class="summary-card">
+        <div class="summary-icon">🏆</div>
+        <div>
+          <p class="summary-label">Esta semana</p>
+          <h3 class="summary-value">5</h3>
+          <p class="summary-sub positive">vs 3 sem. anterior</p>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-icon purple">📊</div>
+        <div>
+          <p class="summary-label">Vol. esta semana</p>
+          <h3 class="summary-value">12.6k kg</h3>
+          <p class="summary-sub positive">+18% este mes</p>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-icon amber">⏱️</div>
+        <div>
+          <p class="summary-label">Tiempo prom.</p>
+          <h3 class="summary-value">61 min</h3>
+          <p class="summary-sub neutral">por sesión</p>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-icon red">🔥</div>
+        <div>
+          <p class="summary-label">Racha</p>
+          <h3 class="summary-value">4 días</h3>
+          <p class="summary-sub neutral">Mejor: 20 días</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gráficos -->
+    <section class="charts-section progress-charts">
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Progreso de fuerza</h3>
+          <select class="exercise-select" id="strength-select">
+            <option>Press Banca Plano</option>
+            <option>Sentadilla</option>
+            <option>Peso Muerto</option>
+          </select>
+        </div>
+        <p class="chart-subtitle">Peso máximo (kg)</p>
+        <div class="chart-canvas-wrap" style="position:relative;height:220px;">
+          <canvas id="strengthChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Volumen por sesión</h3>
+        </div>
+        <p class="chart-subtitle">Volumen total (kg)</p>
+        <div class="chart-canvas-wrap" style="position:relative;height:220px;">
+          <canvas id="volumeChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="charts-section progress-charts">
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Evolución del peso corporal</h3>
+        </div>
+        <p class="chart-subtitle">Peso (kg)</p>
+        <div class="chart-canvas-wrap" style="position:relative;height:220px;">
+          <canvas id="weightChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Comparación</h3>
+          <div class="period-toggle">
+            <button class="period-btn active">Semanal</button>
+            <button class="period-btn">Mensual</button>
+          </div>
+        </div>
+        <div class="comparison-grid">
+          <div class="comparison-item">
+            <p class="comparison-label">Entrenamientos</p>
+            <h3 class="comparison-value" id="cmp-entrenamientos">5</h3>
+            <p class="comparison-delta up" id="cmp-entrenamientos-delta">↑ 67% vs anterior</p>
+          </div>
+          <div class="comparison-item">
+            <p class="comparison-label">Volumen total</p>
+            <h3 class="comparison-value" id="cmp-volumen">12.640 kg</h3>
+            <p class="comparison-delta up" id="cmp-volumen-delta">↑ 59% vs anterior</p>
+          </div>
+          <div class="comparison-item">
+            <p class="comparison-label">Tiempo total</p>
+            <h3 class="comparison-value" id="cmp-tiempo">305 min</h3>
+            <p class="comparison-delta up" id="cmp-tiempo-delta">↑ 56% vs anterior</p>
+          </div>
+          <div class="comparison-item">
+            <p class="comparison-label">Calorías est.</p>
+            <h3 class="comparison-value" id="cmp-calorias">2.180 kcal</h3>
+            <p class="comparison-delta up" id="cmp-calorias-delta">↑ 32% vs anterior</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="progreso.js" defer></script>
+</body>
+</html>
