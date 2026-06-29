@@ -23,54 +23,12 @@ body {
 .form-container input:focus { border: 2px solid #2a5298; outline: none; }
 
 .form-container button.submit-btn {
-  position: relative;
-  margin-top: 15px;
-  padding: 12px;
-  width: 100%;
-  border: none;
-  background: #000;
-  color: rgb(2, 2, 2);
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
-  z-index: 1;
-  overflow: visible;
+  margin-top: 15px; padding: 12px; border: none;
+  background: linear-gradient(to right, #444444, #474747);
+  color: white; font-weight: bold; border-radius: 10px; cursor: pointer;
+  transition: background 0.3s ease;
 }
-
-.form-container button.submit-btn::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 12px;
-  background: linear-gradient(-45deg, #2903ff 0%, #000000 100%);
-  z-index: -2;
-  pointer-events: none;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.form-container button.submit-btn::after {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 12px;
-  background: linear-gradient(-45deg, #1100ff 0%, #000000 100%);
-  transform: translate3d(0, 0, 0) scale(0.92);
-  filter: blur(18px);
-  z-index: -1;
-  pointer-events: none;
-}
-
-.form-container button.submit-btn:hover::after {
-  filter: blur(26px);
-}
-
-.form-container button.submit-btn:hover::before {
-  transform: rotate(-180deg);
-}
-
-.form-container button.submit-btn:active::before {
-  scale: 0.7;
-}
+.form-container button.submit-btn:hover { background: linear-gradient(to left, #1e3c72, #2a5298); }
 
 /* Blue Toggle with curved genie effect */
 .toggle-container {
@@ -109,35 +67,8 @@ body {
 
 .forgot-password { color: #2a5298; margin-top: 8px; font-size: 0.9rem; cursor: pointer; text-decoration: underline; }
 
-.container {
-  cursor: pointer;
-}
-
-.container input {
-  display: none;
-}
-
-.container svg {
-  overflow: visible;
-  width: 12px;
-  height: 12px;
-}
-.path {
-  fill: none;
-  stroke: white;
-  stroke-width: 3;
-  stroke-linecap:round;
-  stroke-linejoin: round;
-  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
-  stroke-dasharray: 241 9999999;
-  stroke-dashoffset: 0;
-}
-
-.container input:checked ~ svg .path {
-  stroke-dasharray: 70.5096664428711 9999999;
-  stroke-dashoffset: -262.2723388671875;
-}
-
+.accept-terms { margin: 10px 0 0 0; font-size: 0.9rem; user-select: none; }
+.accept-terms input { margin-right: 8px; }
 
 .social-login { display: flex; justify-content: center; margin-top: 25px; gap: 15px; }
 .social-btn { width: 45px; height: 45px; border-radius: 10px; background: white; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: background-color 0.3s ease; }

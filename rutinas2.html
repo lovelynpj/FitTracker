@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitTracker - Rutinas Personalizadas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="rutinas2.css">
+</head>
+<body>
+<div class="container">
+  <h2 class="sr-only reveal">Generador de Rutinas Personalizadas FitTracker</h2>
+  <div class="page-title reveal"><i class="ti ti-adjustments" aria-hidden="true"></i> Rutinas personalizadas</div>
+  <p class="page-subtitle reveal">Configurá tu plan de entrenamiento ideal según tus objetivos y disponibilidad.</p>
+
+  <div class="config-card reveal">
+    <h2 id="objetivo-title"><i class="ti ti-target" aria-hidden="true"></i> Objetivo principal</h2>
+    <div class="option-grid" id="objetivo-grid" role="radiogroup" aria-labelledby="objetivo-title">
+      <button class="option-btn" data-val="peso" onclick="select(this,'objetivo-grid')" role="radio" aria-checked="false">
+        <i class="ti ti-flame" aria-hidden="true"></i> Perder peso
+      </button>
+      <button class="option-btn" data-val="masa" onclick="select(this,'objetivo-grid')" role="radio" aria-checked="false">
+        <i class="ti ti-barbell" aria-hidden="true"></i> Ganar masa
+      </button>
+      <button class="option-btn" data-val="forma" onclick="select(this,'objetivo-grid')" role="radio" aria-checked="false">
+        <i class="ti ti-heart-rate-monitor" aria-hidden="true"></i> Mantenerse
+      </button>
+      <button class="option-btn" data-val="resistencia" onclick="select(this,'objetivo-grid')" role="radio" aria-checked="false">
+        <i class="ti ti-run" aria-hidden="true"></i> Resistencia
+      </button>
+    </div>
+  </div>
+
+  <div class="config-card reveal">
+    <h2 id="nivel-title"><i class="ti ti-award" aria-hidden="true"></i> Nivel de experiencia</h2>
+    <div class="option-grid" id="nivel-grid" role="radiogroup" aria-labelledby="nivel-title">
+      <button class="option-btn" data-val="principiante" onclick="select(this,'nivel-grid')" role="radio" aria-checked="false">
+        <i class="ti ti-seedling" aria-hidden="true"></i> Principiante
+      </button>
+      <button class="option-btn" data-val="intermedio" onclick="select(this,'nivel-grid')" role="radio" aria-checked="false">
+        <i class="ti ti-trending-up" aria-hidden="true"></i> Intermedio
+      </button>
+      <button class="option-btn" data-val="avanzado" onclick="select(this,'nivel-grid')" role="radio" aria-checked="false">
+        <i class="ti ti-crown" aria-hidden="true"></i> Avanzado
+      </button>
+    </div>
+  </div>
+
+  <div class="config-card reveal">
+    <div class="two-col">
+      <div class="chip-wrap">
+        <div class="chip-label"><i class="ti ti-calendar-week" aria-hidden="true"></i> Días por semana</div>
+        <div class="chip-grid" id="dias-grid" role="radiogroup" aria-label="Días por semana">
+          <button type="button" class="chip-btn" data-val="2" onclick="selectChip(this,'dias-grid')" role="radio" aria-checked="false">2</button>
+          <button type="button" class="chip-btn selected" data-val="3" onclick="selectChip(this,'dias-grid')" role="radio" aria-checked="true">3</button>
+          <button type="button" class="chip-btn" data-val="4" onclick="selectChip(this,'dias-grid')" role="radio" aria-checked="false">4</button>
+          <button type="button" class="chip-btn" data-val="5" onclick="selectChip(this,'dias-grid')" role="radio" aria-checked="false">5</button>
+          <button type="button" class="chip-btn" data-val="6" onclick="selectChip(this,'dias-grid')" role="radio" aria-checked="false">6</button>
+        </div>
+      </div>
+      <div class="chip-wrap">
+        <div class="chip-label"><i class="ti ti-clock" aria-hidden="true"></i> Minutos por sesión</div>
+        <div class="chip-grid" id="tiempo-grid" role="radiogroup" aria-label="Minutos por sesión">
+          <button type="button" class="chip-btn" data-val="20" onclick="selectChip(this,'tiempo-grid')" role="radio" aria-checked="false">20</button>
+          <button type="button" class="chip-btn" data-val="30" onclick="selectChip(this,'tiempo-grid')" role="radio" aria-checked="false">30</button>
+          <button type="button" class="chip-btn selected" data-val="45" onclick="selectChip(this,'tiempo-grid')" role="radio" aria-checked="true">45</button>
+          <button type="button" class="chip-btn" data-val="60" onclick="selectChip(this,'tiempo-grid')" role="radio" aria-checked="false">60</button>
+          <button type="button" class="chip-btn" data-val="75" onclick="selectChip(this,'tiempo-grid')" role="radio" aria-checked="false">75</button>
+          <button type="button" class="chip-btn" data-val="90" onclick="selectChip(this,'tiempo-grid')" role="radio" aria-checked="false">90</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="config-card reveal">
+    <h2 id="lugar-title"><i class="ti ti-building" aria-hidden="true"></i> Lugar de entrenamiento</h2>
+    <div class="option-grid" id="lugar-grid" role="radiogroup" aria-labelledby="lugar-title">
+      <button class="option-btn" data-val="gimnasio" onclick="select(this,'lugar-grid')" role="radio" aria-checked="false">
+        <i class="ti ti-building-stadium" aria-hidden="true"></i> Gimnasio
+      </button>
+      <button class="option-btn" data-val="casa" onclick="select(this,'lugar-grid')" role="radio" aria-checked="false">
+        <i class="ti ti-home" aria-hidden="true"></i> Casa
+      </button>
+    </div>
+  </div>
+
+  <button class="generate-btn reveal" onclick="generateRoutine()" id="gen-btn">
+    <i class="ti ti-sparkles" aria-hidden="true"></i> Generar mi rutina
+  </button>
+
+  <div class="routine-section reveal" id="routine-section">
+    <div class="section-title reveal"><i class="ti ti-calendar" aria-hidden="true"></i> Tu rutina semanal</div>
+    <div class="days-grid reveal" id="days-grid"></div>
+
+    <div class="section-title reveal"><i class="ti ti-chart-bar" aria-hidden="true"></i> Progreso semanal</div>
+    <div class="progress-card reveal">
+      <div class="progress-header">
+        <h3>Sesiones completadas esta semana</h3>
+        <span class="progress-pct" id="pct-label">0%</span>
+      </div>
+      <div class="progress-bar-bg reveal">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <div class="week-dots reveal" id="week-dots"></div>
+      <div class="stats-row reveal">
+        <div class="mini-stat">
+          <div class="mini-stat-val" id="stat-done">0</div>
+          <div class="mini-stat-label">Completados</div>
+        </div>
+        <div class="mini-stat reveal">
+          <div class="mini-stat-val" id="stat-total">0</div>
+          <div class="mini-stat-label">Total sesiones</div>
+        </div>
+        <div class="mini-stat reveal">
+          <div class="mini-stat-val" id="stat-racha">🔥 0</div>
+          <div class="mini-stat-label">Racha actual</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="rutinas2.js"></script>
+</body>
+</html>
